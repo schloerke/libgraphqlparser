@@ -96,8 +96,8 @@ notnewline [^\n\r]
 }
 
 <LINE_COMMENT_STATE>{
-  {CRLF} { yyextra->loc.step(); BEGIN(INITIAL); }
-  {newline} { yyextra->loc.step(); BEGIN(INITIAL); }
+  {CRLF} { yyextra->loc.lines(yyleng / 2); yyextra->loc.step(); BEGIN(INITIAL); }
+  {newline} { yyextra->loc.lines(yyleng); yyextra->loc.step(); BEGIN(INITIAL); }
   {notnewline}+ /* eat comment character */
 }
 
