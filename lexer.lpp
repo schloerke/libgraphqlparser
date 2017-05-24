@@ -53,7 +53,7 @@ notnewline [^\n\r]
 %}
 
 <STRING_STATE>{
-  \"    {
+  \" {
     BEGIN(INITIAL);
     yylval->str = yyextra->str.c_str();
     *yylloc = yyextra->loc;
